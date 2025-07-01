@@ -12,7 +12,7 @@ export default function Client({ img, name, description, designation }) {
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/clients");
+        const response = await axios.get("https://flipr-assignm.onrender.com/api/clients");
         setClients(response.data);
         console.log("Fetched Clients Data:", response.data);
       } catch (err) {
@@ -59,7 +59,7 @@ export default function Client({ img, name, description, designation }) {
             if (typeof client.img === 'string') {
               // Handle file path - convert to full URL
               imgSrc = client.img.startsWith('/storage/') 
-                ? `http://localhost:3000${client.img}` 
+                ? `https://flipr-assignm.onrender.com${client.img}` 
                 : client.img;
             } else if (client.img && client.img.data && Array.isArray(client.img.data.data)) {
               imgSrc = convertBufferToBase64(client.img.data.data);

@@ -1,51 +1,134 @@
-// src/app/api/clients/route.js
 
+// import mongoose from "mongoose";
+// import { Client } from "@/schema/Client"; // ✅ Make sure schema is correct
+
+// let isConnected = false;
+// async function connectMongo() {
+//   if (isConnected) return;
+//   await mongoose.connect(process.env.MONGODB_URI);
+//   isConnected = true;
+// }
+
+// const corsHeaders = {
+//   "Access-Control-Allow-Origin": "*",
+//   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+//   "Access-Control-Allow-Headers": "Content-Type",
+//   "Content-Type": "application/json",
+// };
+
+// // ✅ Handle preflight CORS requests
+// export async function OPTIONS() {
+//   return new Response(null, {
+//     status: 204,
+//     headers: corsHeaders,
+//   });
+// }
+
+// export async function GET(req) {
+//   try {
+//     await connectMongo();
+//     const clients = await Client.find();
+//     return new Response(JSON.stringify(clients), {
+//       status: 200,
+//       headers: corsHeaders,
+//     });
+//   } catch (error) {
+//     return new Response(JSON.stringify({ error: error.message }), {
+//       status: 500,
+//       headers: corsHeaders,
+//     });
+//   }
+// }
+
+// export async function POST(req) {
+//   try {
+//     const data = await req.json();
+//     await connectMongo();
+
+//     const client = new Client(data);
+//     await client.save();
+
+//     return new Response(JSON.stringify(client), {
+//       status: 201,
+//       headers: corsHeaders,
+//     });
+//   } catch (error) {
+//     return new Response(JSON.stringify({ error: error.message }), {
+//       status: 500,
+//       headers: corsHeaders,
+//     });
+//   }
+// }
 import mongoose from "mongoose";
-import { Client } from "@/schema/Client"; // Ensure this is the correct path and the schema is exported
-import { NextRequest } from "next/server";
+import { Client } from "@/schema/Client"; // ✅ Ensure schema path is valid
 
-export async function GET(req) {
-    try {
-        await mongoose.connect(process.env.MONGODB_URI);
-        const clients = await Client.find();
-        return new Response(JSON.stringify(clients), {
-            status: 200,
-            headers: { 'Content-Type': 'application/json' },
-        });
-    } catch (error) {
-        return new Response(JSON.stringify({ error: error.message }), {
-            status: 500,
-            headers: { 'Content-Type': 'application/json' },
-        });
-    }
+let isConnected = false;
+async function connectMongo() {
+  if (isConnected) return;
+  await mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+  isConnected = true;
 }
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*", // OR set to "http://localhost:3000" for dev
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Max-Age": "86400", // Cache preflight response (optional)
+  "Content-Type": "application/json",
+};
+
+// ✅ OPTIONS — Required for preflight CORS check
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: corsHeaders,
+  });
+}
+
+// ✅ GET — Fetch all clients
+export async function GET() {
+  try {
+    await connectMongo();
+    const clients = await Client.find();
+
+    return new Response(JSON.stringify(clients), {
+      status: 200,
+      headers: corsHeaders,
+    });
+  } catch (error) {
+    return new Response(
+      JSON.stringify({ error: error.message || "Failed to fetch clients" }),
+      {
+        status: 500,
+        headers: corsHeaders,
+      }
+    );
+  }
+}
+
+// ✅ POST — Add a new client
 export async function POST(req) {
-    try {
-        const data = await req.json();
-        console.log(data); // Log the incoming data for debugging
-        await mongoose.connect(process.env.MONGODB_URI);
+  try {
+    const data = await req.json();
+    await connectMongo();
 
-        const ex= {
-            img: "/assets/images/clients/one.svg",
-            name: "Client",
-            description: "This is a client",
-            designation: "CEO",
-        }
+    const client = new Client(data);
+    await client.save();
 
-        // Create a new client instance using the incoming data
-        const client = new Client(data);
-        await client.save();
-        console.log(client)
-
-        return new Response(JSON.stringify(client), {
-            status: 201, // Use 201 for created resources
-            headers: { 'Content-Type': 'application/json' },
-        });
-    } catch (error) {
-        return new Response(JSON.stringify({ error: error.message }), {
-            status: 500,
-            headers: { 'Content-Type': 'application/json' },
-        });
-    }
+    return new Response(JSON.stringify(client), {
+      status: 201,
+      headers: corsHeaders,
+    });
+  } catch (error) {
+    return new Response(
+      JSON.stringify({ error: error.message || "Failed to create client" }),
+      {
+        status: 500,
+        headers: corsHeaders,
+      }
+    );
+  }
 }

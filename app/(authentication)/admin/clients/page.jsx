@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import UploadFile from '@/components/upload-file/page';
 import { AdminNav } from '../page';
-// import "./clients.css";
+import "./clients.css";
 
 export default function Clients() {
   const [clients, setClients] = useState([]);
@@ -35,7 +35,7 @@ export default function Clients() {
     try {
       setLoading(true);
       setError(null);
-      const response = await fetch("/api/clients");
+      const response = await fetch("https://flipr-assignm.onrender.com/api/clients");
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -100,9 +100,10 @@ export default function Clients() {
       setIsSubmitting(true);
       setError(null);
 
-      const response = await fetch('/api/clients', {
+      const response = await fetch('https://flipr-assignm.onrender.com/api/clients', {
         method: 'POST',
         headers: {
+          'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -148,7 +149,7 @@ export default function Clients() {
     
     // If it's a file path starting with /storage/, prepend localhost URL
     if (imgPath.startsWith('/storage/')) {
-      return `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}${imgPath}`;
+      return `${process.env.NEXT_PUBLIC_BASE_URL || 'https://flipr-assignm.onrender.com'}${imgPath}`;
     }
     
     // If it's a base64 string, return as data URL
@@ -157,7 +158,7 @@ export default function Clients() {
     }
     
     // Default case: assume it's a storage path
-    return `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/storage/${imgPath}`;
+    return `${process.env.NEXT_PUBLIC_BASE_URL || 'https://flipr-assignm.onrender.com'}/storage/${imgPath}`;
   }, []);
 
   // Handle dialog open/close

@@ -12,7 +12,7 @@ export default function Project({ img, imgAlt, title, description }) {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/projects');
+        const response = await axios.get('https://flipr-assignm.onrender.com/api/projects');
         setProjects(response.data);
       } catch (error) {
         console.error('Error fetching projects:', error);
