@@ -1,0 +1,39 @@
+[
+    {
+      "title": "Project One",
+      "description": "This is the first project, showcasing advanced functionality and design.",
+      "img": "assets/images/projects/one.svg",
+      "imgAlt": "Illustration of Project One interface"
+    },
+    {
+      "title": "Project Two",
+      "description": "The second project focuses on API integration and responsive layouts.",
+      "img": "assets/images/projects/six.svg",
+      "imgAlt": "Diagram showing Project Two's API flow"
+    },
+    {
+      "title": "Project Three",
+      "description": "This project demonstrates complex data visualization features.",
+      "img": "assets/images/projects/one.svg",
+      "imgAlt": "Chart visualization for Project Three"
+    },
+    {
+      "title": "Project Four",
+      "description": "The fourth project introduces real-time data updates and user interactions.",
+      "img": "assets/images/projects/four.svg",
+      "imgAlt": "Dashboard overview for Project Four"
+    },
+    {
+      "title": "Project Five",
+      "description": "Project Five explores AI-driven user assistance and recommendations.",
+      "img": "assets/images/projects/four.svg",
+      "imgAlt": "Graphic of AI assistance in Project Five"
+    },
+    {
+      "title": "Project Six",
+      "description": "The final project highlights advanced authentication and security features.",
+      "img": "assets/images/projects/six.svg",
+      "imgAlt": "Security interface of Project Six"
+    }
+  ]
+  

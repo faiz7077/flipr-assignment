@@ -1,0 +1,51 @@
+[
+    {
+      "image": "assets/images/user-testimonials/one.svg",
+      "review": "Excellent service that exceeded all my expectations.",
+      "name": "Alice Johnson",
+      "title": "Product Manager at TechCorp"
+    },
+    {
+      "image": "assets/images/user-testimonials/two.svg",
+      "review": "Excellent service that exceeded all my expectations.",
+      "name": "Bob Smith",
+      "title": "Lead Developer at Web Innovations"
+    },
+    {
+      "image": "assets/images/user-testimonials/three.svg",
+      "review": "Excellent service that exceeded all my expectations.",
+      "name": "Carol Brown",
+      "title": "Operations Head at FinServe"
+    },
+    {
+      "image": "assets/images/user-testimonials/four.svg",
+      "review": "Excellent service that exceeded all my expectations.",
+      "name": "David Lee",
+      "title": "Senior Engineer at BuildRight"
+    },
+    {
+      "image": "assets/images/user-testimonials/five.svg",
+      "review": "Excellent service that exceeded all my expectations.",
+      "name": "Eve Adams",
+      "title": "Marketing Director at Bright Ads"
+    },
+    {
+      "image": "assets/images/user-testimonials/six.svg",
+      "review": "Excellent service that exceeded all my expectations.",
+      "name": "Frank Wilson",
+      "title": "Chief Analyst at Data Pros"
+    },
+    {
+      "image": "assets/images/user-testimonials/seven.svg",
+      "review": "Excellent service that exceeded all my expectations.",
+      "name": "Grace Kim",
+      "title": "Creative Lead at Pixel Works"
+    },
+    {
+      "image": "assets/images/user-testimonials/eight.svg",
+      "review": "Excellent service that exceeded all my expectations.",
+      "name": "Henry Martinez",
+      "title": "Project Coordinator at Taskify"
+    }
+]
+  
