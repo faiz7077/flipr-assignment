@@ -91,12 +91,13 @@ export default function Section2() {
           Not Your Average Realtor
         </h1>
         <p className="text-base md:text-lg text-gray-700 px-2 md:px-0 max-w-xl">
-          Buying or selling a home is more than a transaction; it's a life-changing experience. As
-          <strong> "Not Your Average Realtor"</strong>, I go beyond the basics to deliver tailored,
-          data-driven insights, innovative marketing, and an unwavering commitment to your goals.
-          My focus isn't just on closing deals but on creating an experience that's as seamless and
-          rewarding as possible.
-        </p>
+  Buying or selling a home is more than a transaction; it&apos;s a life-changing experience. As
+  <strong> &ldquo;Not Your Average Realtor&rdquo;</strong>, I go beyond the basics to deliver tailored,
+  data-driven insights, innovative marketing, and an unwavering commitment to your goals.
+  My focus isn&apos;t just on closing deals but on creating an experience that&apos;s as seamless and
+  rewarding as possible.
+</p>
+
       </div>
 
       {/* Image Cluster Section */}

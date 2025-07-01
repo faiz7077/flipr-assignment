@@ -1,0 +1,91 @@
+/* clients.css - Scrolling Animation Styles */
+
+/* Keyframe animation for horizontal scrolling */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Main scrolling animation class */
+.animate-scroll {
+  animation: scroll linear infinite;
+  animation-duration: calc(var(--client-count, 5) * 4s);
+}
+
+/* Pause animation on hover */
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Smooth scrolling for manual scroll */
+.scroll-container {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styling */
+.scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Client card hover effects */
+.client-card {
+  transition: all 0.3s ease;
+}
+
+.client-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Loading animation */
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .animate-scroll {
+    animation-duration: calc(var(--client-count, 5) * 6s);
+  }
+  
+  .client-card {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .animate-scroll {
+    animation-duration: calc(var(--client-count, 5) * 8s);
+  }
+  
+  .client-card {
+    width: 180px;
+  }
+}

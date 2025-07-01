@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import UploadFile from '@/components/upload-file/page';
 import { AdminNav } from '../page';
+// import "./clients.css";
 
 export default function Clients() {
   const [clients, setClients] = useState([]);
