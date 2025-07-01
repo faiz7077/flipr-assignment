@@ -100,10 +100,10 @@ export default function Clients() {
       setIsSubmitting(true);
       setError(null);
 
-      const response = await fetch('https://flipr-assignm.onrender.com/api/clients', {
+      const response = await fetch('/api/clients', {
         method: 'POST',
         headers: {
-          'Access-Control-Allow-Origin': '*',
+          
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({

@@ -34,10 +34,10 @@ export default function AdminProjectsPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("https://flipr-assignm.onrender.com/api/projects", {
+    const res = await fetch("/api/projects", {
       method: "POST",
       headers: {
-        'Access-Control-Allow-Origin': '*',
+       
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newProject),
