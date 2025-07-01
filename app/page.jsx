@@ -10,7 +10,7 @@ import Section2 from '@/components/section2/Section2'
 import SpecialitySection from '@/components/specialitySection/SpecialitySection'
 import Testimonials from '@/components/testimonials/Testimonials'
 import React from 'react'
-// import Clients from './(authentication)/admin/clients/page';
+import Clients from './(authentication)/admin/clients/page';
 import Client from '@/components/clients/Clients';
 
 export default function page() {
