@@ -5,6 +5,7 @@ const subscriberSchema = new mongoose.Schema({
         type: String,
         required: true
     }
+    
 });
 
 export const Subscriber = mongoose.models.Subscriber || mongoose.model("Subscriber", subscriberSchema);
